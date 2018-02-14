@@ -48,5 +48,5 @@
   "scripts": {
     "test": "export DYNAMODB_TABLE=alexa-dynamo-table-dev&&export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=voicelab&&export ANALYTICS_TOKEN=analyticsToken&&export API_APP_ID=apiAppId&&export API_HOST=apiHost&& mocha --recursive --reporter spec"
   },
-  "version": "2.3.0"
+  "version": "3.0.0"
 }
