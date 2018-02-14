@@ -1,0 +1,52 @@
+{
+  "author": {
+    "name": "Hearst Emerging Tech"
+  },
+  "bugs": {
+    "url": "https://github.com/Hearst-DD/alexa-toolkit/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "Stuart Chandra",
+      "email": "dev@stuartgc.com",
+      "url": "https://github.com/stuartgc"
+    },
+    {
+      "name": "Tristan Himmelman",
+      "email": "tristanhimmelman@gmail.com",
+      "url": "https://github.com/tristanhimmelman"
+    }
+  ],
+  "dependencies": {
+    "alexa-sdk": "1.0.24",
+    "moment": "2.19.1",
+    "dashbot": "9.4.6",
+    "request": "2.83.0",
+    "voicelabs": "1.0.1"
+  },
+  "deprecated": false,
+  "description": "Toolkit to be used with alexa-sdk to simplify Alexa development.",
+  "devDependencies": {
+    "chai": "4.1.2",
+    "mocha": "4.1.0",
+    "sinon": "4.1.4"
+  },
+  "homepage": "https://github.com/Hearst-DD/alexa-toolkit#readme",
+  "keywords": [
+    "Alexa",
+    "skill",
+    "sdk"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "name": "alexa-toolkit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hearst-DD/alexa-toolkit.git"
+  },
+  "scripts": {
+    "test": "export DYNAMODB_TABLE=alexa-dynamo-table-dev&&export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=voicelab&&export ANALYTICS_TOKEN=analyticsToken&&export API_APP_ID=apiAppId&&export API_HOST=apiHost&& mocha --recursive --reporter spec"
+  },
+  "version": "2.3.0"
+}

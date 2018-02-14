@@ -1,0 +1,322 @@
+{
+    "BodyTemplate1": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "images/display/1200x800/FoodImages_AmazonEcho.png",
+            "width": 1024,
+            "height": 600,
+            "size": "X_LARGE",
+            "description": "background image description"
+        },
+        "hint": "this is a hint",
+        "template": "BodyTemplate1",
+        "text": {
+            "primary": {
+                "type": "RichText",
+                "text": "primary <b>bold</b> rich text"
+            },
+            "secondary": {
+                "type": "PlainText",
+                "text": "secondary plain text"
+            },
+            "tertiary": {
+                "type": "PlainText",
+                "text": "tertiary plain text"
+            }
+        },
+        "title": "I am a title",
+        "token": "tokenBodyTemplate1"
+    },
+    "BodyTemplate2": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "images/display/1200x800/FoodImages_AmazonEcho.png",
+            "width": 1024,
+            "height": 600,
+            "size": "X_LARGE",
+            "description": "background image description"
+        },
+        "hint": "this is a hint",
+        "image": {
+            "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+            "width": 340,
+            "height": 340,
+            "description": "foreground image description"
+        },
+        "template": "BodyTemplate2",
+        "text": {
+            "primary": {
+                "type": "RichText",
+                "text": "primary <b>bold</b> rich text"
+            },
+            "secondary": {
+                "type": "PlainText",
+                "text": "secondary plain text"
+            },
+            "tertiary": {
+                "type": "PlainText",
+                "text": "tertiary plain text"
+            }
+        },
+        "title": "I am a title",
+        "token": "tokenBodyTemplate2"
+    },
+    "BodyTemplate3": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "images/display/1200x800/FoodImages_AmazonEcho.png",
+            "width": 1024,
+            "height": 600,
+            "size": "X_LARGE",
+            "description": "background image description"
+        },
+        "hint": "this is a hint",
+        "image": {
+            "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+            "width": 340,
+            "height": 340,
+            "description": "foreground image description"
+        },
+        "template": "BodyTemplate3",
+        "text": {
+            "primary": {
+                "type": "RichText",
+                "text": "primary <b>bold</b> rich text"
+            },
+            "secondary": {
+                "type": "PlainText",
+                "text": "secondary plain text"
+            },
+            "tertiary": {
+                "type": "PlainText",
+                "text": "tertiary plain text"
+            }
+        },
+        "title": "I am a title",
+        "token": "tokenBodyTemplate3"
+    },
+    "BodyTemplate6": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "images/display/1200x800/FoodImages_AmazonEcho.png",
+            "width": 1024,
+            "height": 600,
+            "size": "X_LARGE",
+            "description": "background image description"
+        },
+        "hint": "this is a hint",
+        "image": {
+            "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+            "width": 340,
+            "height": 340,
+            "description": "foreground image description"
+        },
+        "template": "BodyTemplate6",
+        "text": {
+            "primary": {
+                "type": "RichText",
+                "text": "primary <b>bold</b> rich text"
+            },
+            "secondary": {
+                "type": "PlainText",
+                "text": "secondary plain text"
+            },
+            "tertiary": {
+                "type": "PlainText",
+                "text": "tertiary plain text"
+            }
+        },
+        "title": "I am a title",
+        "token": "tokenBodyTemplate6"
+    },
+    "BodyTemplate7": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "images/display/1200x800/FoodImages_AmazonEcho.png",
+            "width": 1024,
+            "height": 600,
+            "size": "X_LARGE",
+            "description": "background image description"
+        },
+        "hint": "this is a hint",
+        "image": {
+            "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+            "width": 960,
+            "height": 640,
+            "description": "foreground image description"
+        },
+        "template": "BodyTemplate7",
+        "title": "I am a title",
+        "token": "tokenBodyTemplate7"
+    },
+    "ListTemplate1": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "images/display/1200x800/FoodImages_AmazonEcho.png",
+            "width": 1024,
+            "height": 600,
+            "size": "X_LARGE",
+            "description": "background image description"
+        },
+        "hint": "this is a hint",
+        "list": [
+            {
+                "image": {
+                    "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+                    "width": 88,
+                    "height": 88,
+                    "description": "list image 1"
+                },
+                "text": {
+                    "primary": {
+                        "type": "RichText",
+                        "text": "1 primary <b>bold</b> rich text"
+                    },
+                    "secondary": {
+                        "type": "PlainText",
+                        "text": "1 secondary plain text"
+                    },
+                    "tertiary": {
+                        "type": "PlainText",
+                        "text": "1 tertiary plain text"
+                    }
+                },
+                "token": "listItem1"
+            },
+            {
+                "image": {
+                    "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+                    "width": 88,
+                    "height": 88,
+                    "description": "list image 2"
+                },
+                "text": {
+                    "primary": {
+                        "type": "RichText",
+                        "text": "2 primary <b>bold</b> rich text"
+                    },
+                    "secondary": {
+                        "type": "PlainText",
+                        "text": "2 secondary plain text"
+                    },
+                    "tertiary": {
+                        "type": "PlainText",
+                        "text": "2 tertiary plain text"
+                    }
+                },
+                "token": "listItem2"
+            },
+            {
+                "image": {
+                    "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+                    "width": 88,
+                    "height": 88,
+                    "description": "list image 3"
+                },
+                "text": {
+                    "primary": {
+                        "type": "RichText",
+                        "text": "3 primary <b>bold</b> rich text"
+                    },
+                    "secondary": {
+                        "type": "PlainText",
+                        "text": "3 secondary plain text"
+                    },
+                    "tertiary": {
+                        "type": "PlainText",
+                        "text": "3 tertiary plain text"
+                    }
+                },
+                "token": "listItem3"
+            }
+        ],
+        "template": "ListTemplate1",
+        "title": "I am a title",
+        "token": "tokenListTemplate1"
+    },
+    "ListTemplate2": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "images/display/1200x800/FoodImages_AmazonEcho.png",
+            "width": 1024,
+            "height": 600,
+            "size": "X_LARGE",
+            "description": "background image description"
+        },
+        "hint": "this is a hint",
+        "list": [
+            {
+                "image": {
+                    "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+                    "width": 280,
+                    "height": 280,
+                    "description": "list image 1"
+                },
+                "text": {
+                    "primary": {
+                        "type": "RichText",
+                        "text": "1 primary <b>bold</b> rich text"
+                    },
+                    "secondary": {
+                        "type": "PlainText",
+                        "text": "1 secondary plain text"
+                    },
+                    "tertiary": {
+                        "type": "PlainText",
+                        "text": "1 tertiary plain text"
+                    }
+                },
+                "token": "listItem1"
+            },
+            {
+                "image": {
+                    "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+                    "width": 280,
+                    "height": 280,
+                    "description": "list image 2"
+                },
+                "text": {
+                    "primary": {
+                        "type": "RichText",
+                        "text": "2 primary <b>bold</b> rich text"
+                    },
+                    "secondary": {
+                        "type": "PlainText",
+                        "text": "2 secondary plain text"
+                    },
+                    "tertiary": {
+                        "type": "PlainText",
+                        "text": "2 tertiary plain text"
+                    }
+                },
+                "token": "listItem2"
+            },
+            {
+                "image": {
+                    "url": "http://ghk.h-cdn.co/assets/18/01/640x960/gallery-1514995834-creamy-lemon-chicken-pasta-ghk-0118.jpg",
+                    "width": 280,
+                    "height": 280,
+                    "description": "list image 3"
+                },
+                "text": {
+                    "primary": {
+                        "type": "RichText",
+                        "text": "3 primary <b>bold</b> rich text"
+                    },
+                    "secondary": {
+                        "type": "PlainText",
+                        "text": "3 secondary plain text"
+                    },
+                    "tertiary": {
+                        "type": "PlainText",
+                        "text": "3 tertiary plain text"
+                    }
+                },
+                "token": "listItem3"
+            }
+        ],
+        "template": "ListTemplate2",
+        "title": "I am a title",
+        "token": "tokenListTemplate2"
+    }
+}
