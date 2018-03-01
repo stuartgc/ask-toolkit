@@ -221,7 +221,7 @@ describe( "UTILS", function() {
             expect( func ).to.not.throw();
         } );
 
-        it( "fail gracefully when string arg is not a string", function() {
+        it( "fail gracefully when string arg is not a String", function() {
             const func = () => {
                 expect( typeof utils.replaceAll( {}, this.mapObj ) ).to.equal( "object" );
             };
@@ -237,9 +237,17 @@ describe( "UTILS", function() {
             expect( func ).to.not.throw();
         } );
 
-        it( "fail gracefully when mapObj is not an object", function() {
+        it( "fail gracefully when mapObj is a string", function() {
             const func = () => {
                 expect( utils.replaceAll( this.templateStr, this.replacedStr ) ).to.equal( this.templateStr );
+            };
+
+            expect( func ).to.not.throw();
+        } );
+
+        it( "fail gracefully when mapObj is a Date", function() {
+            const func = () => {
+                expect( utils.replaceAll( this.templateStr, new Date() ) ).to.equal( this.templateStr );
             };
 
             expect( func ).to.not.throw();
