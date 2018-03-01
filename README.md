@@ -8,22 +8,22 @@ Helper methods to be used in conjunction with Amazon's `alexa-sdk`.
 ## response handlers
 Creates display templates, sends tracking events (if configured), links accounts with LWA (if configured) and sends response to Alexa.
  
- ##### TO USE:
+ #### TO USE:
  * `index.js`
     * add `responseHandlers = require( "alexa-tools" ).response.handlers`
     * add `alexa.registerHandlers( responseHandlers, ... )`
  * Replace all emits to `":ask"`, `":askWithCard"`, `":tell"` or `":tellWithCard"` with `"::ask"` or `"::tell"` 
  
- ##### EXAMPLES:
+ #### EXAMPLES:
  1) Replace `this.emit( ":askWithCard", output, reprompt, cardTitle, card )`  with    `this.emit( "::ask", { speech: { output: output, reprompt: reprompt }, card: { title: cardTitle, output: card } } )`
  2) Replace `this.emit( ":tell", output )`
   with    `this.emit( "::tell", { speech: { output: output} } )`
  
- ##### HANDLERS:
+ #### HANDLERS:
  1) `this.emit( "::ask", askData, options)`
  2) `this.emit( "::tell", tellData, options)`
  
- ##### PARAMS:
+ #### PARAMS:
  ```
  askData = {
      card: (Card),
@@ -61,7 +61,7 @@ Creates display templates, sends tracking events (if configured), links accounts
  }
  ```
  
- ##### OBJECTS:
+ #### OBJECTS:
  ```
  Card = {
      image: {
@@ -121,7 +121,7 @@ Creates display templates, sends tracking events (if configured), links accounts
      text: (String)
  }
  ```
-##### image specs
+#### image specs
  * __BackgroundImage__
     - 1024 x 600
     
@@ -157,7 +157,7 @@ Creates display templates, sends tracking events (if configured), links accounts
  * LARGE: 1200 x 800
  * X_LARGE: 1920 x 1280
 ## response utils
-##### `alexa-tools.response.utils.replaceInSpeechAndCard( responseData, replaceObj )`
+#### `alexa-tools.response.utils.replaceInSpeechAndCard( responseData, replaceObj )`
 * Replaces all instances of replaceObj key with value of replaceObj key in responseData speech output, speech reprompt, card title and card reprompt.
 * _Example:_
   ```
@@ -181,7 +181,7 @@ Creates display templates, sends tracking events (if configured), links accounts
     }
     ```
     
-##### `alexa-tools.response.utils.replaceInDisplay( responseData, replaceObj )`
+#### `alexa-tools.response.utils.replaceInDisplay( responseData, replaceObj )`
 * Replaces all instances of replaceObj key with value of replaceObj key in responseData display primary, secondary and tertiary text.
 * _Example:_
   ```
@@ -233,7 +233,7 @@ Creates display templates, sends tracking events (if configured), links accounts
     }
     ```
 
-##### `alexa-tools.response.utils.replaceInAll( responseData, replaceObj )`
+#### `alexa-tools.response.utils.replaceInAll( responseData, replaceObj )`
 * Makes calls to `replaceInSpeechAndCard` and `replaceInDisplay`
     
 
@@ -253,14 +253,6 @@ Creates display templates, sends tracking events (if configured), links accounts
 
 ## list-api
 * Helper methods for adding items to an Alexa list
-
-## lwa
-* Fetches profile information from Amazon if LWA permissions have been granted.
-* Sends data to API.
-* Makes request to API to send email after updating profile information.
-
-## notifications
-* Helper methods for sending Alexa notifications.
 
 ## utils
 * General helper methods that are added to the global scope as `global.utils`
