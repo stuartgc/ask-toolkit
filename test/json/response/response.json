@@ -1,0 +1,26 @@
+{
+    "card": {
+        "title": "Card Title",
+        "output": "This is card output."
+    },
+    "display": {
+        "backButton": "HIDDEN",
+        "backgroundImage": {
+            "url": "display/1024x600/surfacestain.png",
+            "width": 1024,
+            "height": 600
+        },
+        "template": "BodyTemplate1",
+        "text": {
+            "primary": {
+                "type": "RichText",
+                "text": "Primary Rich Text"
+            }
+        },
+        "token": "displauyToken"
+    },
+    "speech": {
+        "output": "Speech output",
+        "reprompt": "Speech reprompt"
+    }
+}
