@@ -255,4 +255,4 @@ Creates display templates, sends tracking events (if configured), links accounts
 * Helper methods for adding items to an Alexa list
 
 ## utils
-* General helper methods that are added to the global scope as `global.utils`
+* General helper methods.
