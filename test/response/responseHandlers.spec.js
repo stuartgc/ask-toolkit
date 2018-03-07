@@ -61,7 +61,7 @@ describe( "RESPONSE HANDLERS", function() {
                 done();
             } );
 
-            queue.addToBeforeResponse( function( cb ) {
+            queue.addToBeforeResponse( "foo", function( cb ) {
                 cb();
             } );
 
