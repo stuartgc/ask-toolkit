@@ -50,5 +50,5 @@
     "test": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=voicelab&&export ANALYTICS_TOKEN=analyticsToken&& mocha --recursive --reporter spec",
     "test-coverage": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=voicelab&&export ANALYTICS_TOKEN=analyticsToken&& nyc mocha --recursive --reporter spec && nyc report --reporter=html"
   },
-  "version": "3.1.1"
+  "version": "3.1.2"
 }
