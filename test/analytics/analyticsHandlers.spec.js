@@ -1,14 +1,14 @@
 "use strict";
 
 const analytics = require( "./../../lib/analytics/analyticsHandlers" ),
+    analyticsUtils = require( "./../../lib/analytics/analyticsUtils" ),
     c = require( "./../../lib/analytics/constants" ),
     Dashbot = require( "dashbot" )( process.env.ANALYTICS_TOKEN ).alexa,
-    VoiceLabs = require( "voicelabs" )( process.env.ANALYTICS_TOKEN );
+    dashbotEventService = require( "./../../lib/analytics/dashbotEventService" );
 
 describe( "ANALYTICS HANDLERS", function() {
     let callback,
-        dashStub,
-        viStub;
+        dashEventStub;
 
     beforeEach( function() {
         Object.assign( analytics, {
@@ -42,74 +42,24 @@ describe( "ANALYTICS HANDLERS", function() {
 
         callback = sinon.spy();
 
-        dashStub = sinon.stub( Dashbot, "logOutgoing" ).returnsArg( 1 );
-
-        viStub = sinon.stub( VoiceLabs, "track" ).returnsArg( 2 );
+        dashEventStub = sinon.stub( dashbotEventService, "send" ).returnsArg( 1 );
     } );
 
     afterEach( function() {
-        Dashbot.logOutgoing.restore();
-
-        VoiceLabs.track.restore();
+        dashbotEventService.send.restore();
     } );
 
     describe( "analyticsHandlers.sendResponseTracking", function() {
         it( "Non-trackable session - userId is missing from event", function( done ) {
+            const dashStub = sinon.stub( Dashbot, "logOutgoing" ).returnsArg( 1 );
+
             delete analytics.event.session.user.userId;
 
             analytics[ "sendResponseTracking" ]( {}, null, callback );
 
-            sinon.assert.callCount( viStub, 0 );
+            sinon.assert.callCount( dashStub, 0 );
 
-            done();
-        } );
-
-        it( "Launch Request - track method intentName equal to c.requestType.launchRequest", function( done ) {
-            analytics.event.request.type = c.requestType.launchRequest;
-
-            analytics[ "sendResponseTracking" ]( {}, null, callback );
-
-            expect( viStub.args[ 0 ][ 1 ] ).to.equal( c.requestType.launchRequest );
-
-            done();
-        } );
-
-        it( "Audio Player - track method intentName  equal to c.requestType.audioPlayer", function( done ) {
-            analytics.event.request.type = c.requestType.audioPlayer;
-
-            analytics[ "sendResponseTracking" ]( {}, null, callback );
-
-            expect( viStub.args[ 0 ][ 1 ] ).to.equal( c.requestType.audioPlayer );
-
-            done();
-        } );
-
-        it( "Playback Controller - track method intentName equal to c.requestType.playbackController", function( done ) {
-            analytics.event.request.type = c.requestType.playbackController;
-
-            analytics[ "sendResponseTracking" ]( {}, null, callback );
-
-            expect( viStub.args[ 0 ][ 1 ] ).to.equal( c.requestType.playbackController );
-
-            done();
-        } );
-
-        it( "Session Ended - track method intentName argument equal to c.SESSION_END", function( done ) {
-            analytics.event.request.type = c.requestType.sessionEndedRequest;
-
-            analytics[ "sendResponseTracking" ]( {}, null, callback );
-
-            expect( viStub.args[ 0 ][ 1 ] ).to.equal( c.SESSION_END );
-
-            done();
-        } );
-
-        it( "Regular Intent - track method intentName argument equal to analytics.event.request.intent.name and metadata.slots equal to analytics.event.request.intent.slots", function( done ) {
-            analytics[ "sendResponseTracking" ]( {}, null, callback );
-
-            expect( viStub.args[ 0 ][ 1 ] ).to.equal( analytics.event.request.intent.name );
-
-            expect( viStub.args[ 0 ][ 2 ].slots ).to.equal( analytics.event.request.intent.slots );
+            Dashbot.logOutgoing.restore();
 
             done();
         } );
@@ -117,15 +67,17 @@ describe( "ANALYTICS HANDLERS", function() {
 
     describe( "analyticsHandlers.sendEvent", function() {
         it( "Valid params", function( done ) {
-            analytics[ "sendEvent" ]( analytics.event, "trackingEvent", "trackingParams", callback );
+            const params = {
+                foo: "bar"
+            };
 
-            //sinon.assert.calledWith( viStub, "trackingEvent", "trackingParams" );
+            analytics[ "sendEvent" ]( analytics.event, "trackingEvent", params, callback );
 
-            expect( viStub.calledWith( analytics.event.session, "trackingEvent", "trackingParams" ) ).to.be.true;
+            expect( dashEventStub.calledWith( analytics.event, "trackingEvent", params ) ).to.be.true;
 
             analytics[ "sendEvent" ]( analytics.event, "trackingEvent" );
 
-            expect( viStub.calledWith( analytics.event.session, "trackingEvent", null ) ).to.be.true;
+            expect( dashEventStub.calledWith( analytics.event, "trackingEvent", undefined ) ).to.be.true;
 
             done();
         } );
@@ -133,7 +85,7 @@ describe( "ANALYTICS HANDLERS", function() {
         it( "Incorrect params", function( done ) {
             analytics[ "sendEvent" ]( analytics.event, null, "trackingParams" );
 
-            expect( viStub.called ).to.be.false;
+            expect( dashEventStub.called ).to.be.false;
 
             //not trackable event
             const uid = analytics.event.session.user.userId;
@@ -142,7 +94,7 @@ describe( "ANALYTICS HANDLERS", function() {
 
             analytics[ "sendEvent" ]( analytics.event, null, "trackingParams" );
 
-            expect( viStub.called ).to.be.false;
+            expect( dashEventStub.called ).to.be.false;
 
             analytics.event.session.user.userId = uid;
 
@@ -158,9 +110,9 @@ describe( "ANALYTICS HANDLERS", function() {
 
             expect( eventSpy.calledWith( analytics.event, "SponsorPlayedEvent", { campaignId: "campaignId", label: "adLabel" } ) );
 
-            expect( viStub.calledWith( analytics.event.session, "SponsorPlayedEvent", { campaignId: "campaignId", label: "adLabel" } ) ).to.be.true;
+            expect( dashEventStub.calledWith( analytics.event, "SponsorPlayedEvent", { campaignId: "campaignId", label: "adLabel" } ) ).to.be.true;
 
-            eventSpy.restore();
+            analytics.sendEvent.restore();
 
             done();
         } );
@@ -175,9 +127,9 @@ describe( "ANALYTICS HANDLERS", function() {
 
             expect( eventSpy.calledWith( analytics.event, "SponsorPlayedEvent", { campaignId: "campaignId", label: "adLabel" } ) );
 
-            expect( viStub.called ).to.be.false;
+            expect( dashEventStub.called ).to.be.false;
 
-            eventSpy.restore();
+            analytics.sendEvent.restore();
 
             done();
         } );
