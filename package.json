@@ -19,18 +19,17 @@
     }
   ],
   "dependencies": {
-    "alexa-sdk": "1.0.24",
+    "alexa-sdk": "1.0.25",
     "async": "2.6.0",
-    "dashbot": "9.4.6",
-    "request": "2.83.0",
-    "voicelabs": "1.0.1"
+    "dashbot": "9.9.1",
+    "request": "2.85.0"
   },
   "deprecated": false,
   "description": "Toolkit to be used with alexa-sdk to simplify Alexa development.",
   "devDependencies": {
     "chai": "4.1.2",
     "mocha": "4.1.0",
-    "nyc": "11.4.1",
+    "nyc": "11.7.3",
     "sinon": "4.1.4"
   },
   "homepage": "https://github.com/Hearst-DD/alexa-toolkit#readme",
@@ -47,8 +46,8 @@
     "url": "git+https://github.com/Hearst-DD/alexa-toolkit.git"
   },
   "scripts": {
-    "test": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=voicelab&&export ANALYTICS_TOKEN=analyticsToken&& mocha --recursive --reporter spec",
-    "test-coverage": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=voicelab&&export ANALYTICS_TOKEN=analyticsToken&& nyc mocha --recursive --reporter spec && nyc report --reporter=html"
+    "test": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=dashbot&&export ANALYTICS_TOKEN=analyticsToken&& mocha --recursive --reporter spec",
+    "test-coverage": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=dashbot&&export ANALYTICS_TOKEN=analyticsToken&& nyc mocha --recursive --reporter spec && nyc report --reporter=html"
   },
-  "version": "3.1.3"
+  "version": "3.2.1"
 }
