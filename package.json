@@ -20,6 +20,7 @@
   ],
   "dependencies": {
     "alexa-sdk": "1.0.25",
+    "ask-sdk": "2.0.5",
     "async": "2.6.0",
     "dashbot": "9.9.1",
     "request": "2.85.0"
