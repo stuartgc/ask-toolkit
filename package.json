@@ -19,14 +19,13 @@
     }
   ],
   "dependencies": {
-    "alexa-sdk": "1.0.25",
-    "ask-sdk": "2.0.5",
+    "ask-sdk": "2.0.6",
     "async": "2.6.0",
     "dashbot": "9.9.1",
     "request": "2.85.0"
   },
   "deprecated": false,
-  "description": "Toolkit to be used with alexa-sdk to simplify Alexa development.",
+  "description": "Toolkit to be used with ask-sdk to simplify Alexa development.",
   "devDependencies": {
     "chai": "4.1.2",
     "mocha": "4.1.0",

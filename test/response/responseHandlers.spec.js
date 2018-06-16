@@ -2,8 +2,8 @@
 
 const c = require( "./../../lib/analytics/constants" ),
     queue = require( "./../../lib/response/queue" ),
-    responseObj = require( "./../json/response/response" ),
-    responseHandlers = require( "./../../lib/response/responseHandlers" );
+    responseObj = require( "./../json/response/response" );
+    // responseHandlers = require( "./../../lib/response/responseHandlers" );
 
 describe( "RESPONSE HANDLERS", function() {
     beforeEach( function() {

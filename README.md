@@ -79,7 +79,7 @@ Creates display templates, sends tracking events (if configured), links accounts
     actionLinks: (Unknown),
     backButton: (Enum) HIDDEN | VISIBLE (default),
     backgroundImage: (ImageObj),
-    hint: (String) | (TextObj),
+    hint: (String),
     image: (ImageObj),
     list: [List],
     template: (Enum) BodyTemplate1 | BodyTemplate2 | BodyTemplate3 | BodyTemplate6 | BodyTemplate7 | ListTemplate1 | ListTemplate2,
