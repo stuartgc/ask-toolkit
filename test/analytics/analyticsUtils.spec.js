@@ -1,7 +1,7 @@
 "use strict";
 
 const analyticsHelper = require( "./../../lib/analytics/analyticsUtils" ),
-    c = require( "./../../lib/analytics/constants" );
+    e = require( "./../../lib/enums" );
 
 describe( "ANALYTICS UTILS", function() {
     describe( "analyticsUtils.isTrackableRequest ", function() {
@@ -13,7 +13,7 @@ describe( "ANALYTICS UTILS", function() {
                     }
                 },
                 request: {
-                    type: c.requestType.intentRequest
+                    type: e.requestType.intentRequest
                 }
             }
 

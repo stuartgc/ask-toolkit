@@ -1,6 +1,6 @@
 "use strict";
 
-const c = require( "./../../lib/analytics/constants" ),
+const e = require( "./../../lib/enums" ),
     responseObj = require( "./../json/response/response" );
     // responseHandlers = require( "./../../lib/response/responseHandlers" );
 
@@ -34,7 +34,7 @@ describe( "RESPONSE HANDLERS", function() {
                         }
                     },
                     locale: "MOON",
-                    type: c.requestType.intentRequest
+                    type: e.requestType.intentRequest
                 }
             }
         } );
