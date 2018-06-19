@@ -1,7 +1,6 @@
 "use strict";
 
 const c = require( "./../../lib/analytics/constants" ),
-    queue = require( "./../../lib/response/queue" ),
     responseObj = require( "./../json/response/response" );
     // responseHandlers = require( "./../../lib/response/responseHandlers" );
 
