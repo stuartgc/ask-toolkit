@@ -1,6 +1,6 @@
 "use strict";
 
-const e = require( "./../../lib/enums" ),
+const e = require( "../../lib/enums" ),
     responseObj = require( "./../json/response/response" );
     // responseHandlers = require( "./../../lib/response/responseHandlers" );
 

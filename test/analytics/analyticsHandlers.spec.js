@@ -2,7 +2,7 @@
 
 const analytics = require( "./../../lib/analytics/analyticsHandlers" ),
     analyticsUtils = require( "./../../lib/analytics/analyticsUtils" ),
-    e = require( "./../../lib/enums" ),
+    e = require( "../../lib/enums" ),
     Dashbot = require( "dashbot" )( process.env.ANALYTICS_TOKEN ).alexa,
     dashbotEventService = require( "./../../lib/analytics/dashbotEventService" );
 

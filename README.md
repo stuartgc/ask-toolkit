@@ -9,7 +9,7 @@ Helper methods to be used in conjunction with Amazon's `alexa-sdk`.
 Creates display templates, sends tracking events (if configured), links accounts with LWA (if configured) and sends response to Alexa.
  
  #### TO USE:
- * `index.js`
+ * `index.ts`
     * add `responseHandlers = require( "alexa-tools" ).response.handlers`
     * add `alexa.registerHandlers( responseHandlers, ... )`
  * Replace all emits to `":ask"`, `":askWithCard"`, `":tell"` or `":tellWithCard"` with `"::ask"` or `"::tell"` 
@@ -246,7 +246,7 @@ Creates display templates, sends tracking events (if configured), links accounts
  }
  ```
 * Add `ANALYTICS_TOKEN` env var
-* `index.js`
+* `index.ts`
     * add `analytics = require( "alexa-tools" ).analytics`
     * add `analytics.init( event );` after Alexa instantiation.
 * Use response handlers `::ask` and `::tell`

@@ -1,10 +1,8 @@
 "use strict";
-
 /**
  * ENUMS
  *
  */
-
 const enums = {
     // Attribute keys for storing data across session
     attr: {
@@ -12,12 +10,10 @@ const enums = {
         SPEECH_OUTPUT: "speechOutput",
         SPEECH_REPROMPT: "speechReprompt"
     },
-
     protocol: {
         HTTP: "http://",
         HTTPS: "https://"
     },
-
     // Request types
     requestType: {
         audioPlayer: "AudioPlayer",
@@ -26,14 +22,12 @@ const enums = {
         playbackController: "PlaybackController",
         sessionEndedRequest: "SessionEndedRequest"
     },
-
     /*******************
      **** ANALYTICS ****
      *******************/
     analyticsProvider: {
         DASHBOT: "dashbot"
     },
-
     /*******************
      ***** RESPONSE ****
      *******************/
@@ -44,7 +38,6 @@ const enums = {
         small: "smallImageUrl",
         large: "largeImageUrl"
     },
-
     /**
      * Display.RenderTemplate Enums
      */
@@ -55,12 +48,10 @@ const enums = {
         LARGE: "LARGE",
         X_LARGE: "X_LARGE"
     },
-
     TEXT_STYLE: {
         PLAIN: "plain",
         RICH: "rich"
     },
-
     template: {
         BODY_1: "BodyTemplate1",
         BODY_2: "BodyTemplate2",
@@ -70,12 +61,10 @@ const enums = {
         LIST_1: "ListTemplate1",
         LIST_2: "ListTemplate2"
     },
-
     visibility: {
         HIDDEN: "HIDDEN",
         VISIBLE: "VISIBLE"
     },
-
     /*******************
      ****** UTILS ******
      *******************/
@@ -87,11 +76,9 @@ const enums = {
             TEMPLATE: "1.0"
         }
     },
-
     logLevels: {
         DEBUG: "debug",
         ERROR: "error"
     }
 };
-
 module.exports = enums;

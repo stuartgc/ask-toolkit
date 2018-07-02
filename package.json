@@ -34,7 +34,8 @@
     "chai": "4.1.2",
     "mocha": "4.1.0",
     "nyc": "11.7.3",
-    "sinon": "4.1.4"
+    "sinon": "4.1.4",
+    "typescript": "^2.9.2"
   },
   "homepage": "https://github.com/Hearst-DD/alexa-toolkit#readme",
   "keywords": [
@@ -43,13 +44,15 @@
     "sdk"
   ],
   "license": "Apache-2.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "name": "alexa-toolkit",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hearst-DD/alexa-toolkit.git"
   },
   "scripts": {
+    "build": "tsc",
     "test": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=dashbot&&export ANALYTICS_TOKEN=analyticsToken&& mocha --recursive --reporter spec",
     "test-coverage": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=dashbot&&export ANALYTICS_TOKEN=analyticsToken&& nyc mocha --recursive --reporter spec && nyc report --reporter=html"
   },
