@@ -60,7 +60,7 @@ Creates display templates, sends tracking events (if configured), links accounts
                  value: (String)
          }
      },
-     repeatOutput: {
+     repeatSpeech: {  // Can also be passed as data.repeatSpeech
         output: (String),
         reprompt: (String)
      },
