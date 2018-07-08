@@ -55,6 +55,10 @@ Creates display templates, sends tracking events (if configured), links accounts
                  value: (String)
          }
      },
+     repeatOutput: {
+        output: (String),
+        reprompt: (String)
+     },
      saveRepeat: (Boolean) true,
      shouldEndSession: true | false | null,
      track: (Boolean) true
