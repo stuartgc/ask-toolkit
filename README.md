@@ -257,6 +257,8 @@ Creates display templates, sends tracking events (if configured), links accounts
 
 ## list-api
 * Helper methods for adding items to an Alexa list
+* `index.js`
+    * add to skillBuilder `.withApiClient( new Alexa.DefaultApiClient() )`
 
 ## utils
 * General helper methods.
