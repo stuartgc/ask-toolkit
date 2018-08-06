@@ -9,7 +9,7 @@ const analytics = require( "./lib/analytics/analytics" ),
     utils = require( "./lib/utils/utils" );
 
 module.exports.analytics = analytics;
-module.exports.kmsService = kmsService;
+module.exports.kmsService = kmsService.methods;
 module.exports.listApi = listApi;
 module.exports.localization = localization;
 module.exports.persistence = persistence;
