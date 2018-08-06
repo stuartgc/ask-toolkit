@@ -1,6 +1,6 @@
 "use strict";
 
-const e = require( "./../../lib/errors" ),
+const e = require( "./../../errors" ),
     kmsService = require( "./../../lib/services/KMSService" ),
     AWS = require( "aws-sdk-mock" );
 
