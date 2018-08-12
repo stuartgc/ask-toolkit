@@ -255,6 +255,11 @@ Creates display templates, sends tracking events (if configured), links accounts
     * add `analytics.init( event );` after Alexa instantiation.
 * Use response handlers `::ask` and `::tell`
 
+## isp
+* Helper methods for In-Skill Purchasing
+* `index.js`
+    * add to skillBuilder `.withApiClient( new Alexa.DefaultApiClient() )`
+
 ## list-api
 * Helper methods for adding items to an Alexa list
 * `index.js`
