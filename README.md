@@ -1,32 +1,30 @@
-# alexa-toolkit
+# ask-toolkit
 
-## deprecated
-_This version of the alexa-toolkit is no longer supported. Please use the v2 release found here: https://github.com/Hearst-DD/ask-toolkit or `npm install ask-toolkit`_
-
----
-
-Helper methods to be used in conjunction with Amazon's `alexa-sdk` v1.
+Helper methods to be used in conjunction with Amazon's `ask-sdk`. (https://ask-sdk-for-nodejs.readthedocs.io/en/latest/)
 
 ## install
-`npm install --save alexa-toolkit`
+`npm install --save ask-toolkit`
 
 ## response handlers
 Creates display templates, sends tracking events (if configured), links accounts with LWA (if configured) and sends response to Alexa.
  
  #### TO USE:
  * `index.js`
-    * add `responseHandlers = require( "alexa-tools" ).response.handlers`
     * add `alexa.registerHandlers( responseHandlers, ... )`
- * Replace all emits to `":ask"`, `":askWithCard"`, `":tell"` or `":tellWithCard"` with `"::ask"` or `"::tell"` 
+ * responseHandlers file
+    * add `responseBuilder = require( "ask-toolkit" ).response.builder`
+    * export handlers as array `module.exports = [ handler1, handler2, etc ];`
+    * Replace `return handlerInput.responseBuilder.getResponse()` with `return responseBuilder.ask( handlerInput, responseObj );` 
  
- #### EXAMPLES:
- 1) Replace `this.emit( ":askWithCard", output, reprompt, cardTitle, card )`  with    `this.emit( "::ask", { speech: { output: output, reprompt: reprompt }, card: { title: cardTitle, output: card } } )`
- 2) Replace `this.emit( ":tell", output )`
-  with    `this.emit( "::tell", { speech: { output: output} } )`
+ #### EXAMPLE:
+ Replace `return handlerInput.responseBuilder.speak( output ).reprompt( reprompt ).withSimpleCard( cardTitle, card ).getResponse()`  with  `return responseBuilder.ask( handlerInput, { speech: { output: output, reprompt: reprompt }, card: { title: cardTitle, output: card } } )`
  
- #### HANDLERS:
- 1) `this.emit( "::ask", askData, options)`
- 2) `this.emit( "::tell", tellData, options)`
+ #### METHODS:
+ 1) `responseBuilder.ask( handlerInput, askData, options )`
+ 2) `responseBuilder.tell( handlerInput, tellData, options )`
+ 3) `responseBuilder.askForPermissions( handlerInput, data, options, permissions )`
+ 4) `responseBuilder.sendDirective( handlerInput, type, name, payload, token )`
+ 5) `responseBuilder.sendLinkAccountCard( handlerInput, data, options )`
  
  #### PARAMS:
  ```
@@ -166,11 +164,11 @@ Creates display templates, sends tracking events (if configured), links accounts
  * LARGE: 1200 x 800
  * X_LARGE: 1920 x 1280
 ## response utils
-#### `alexa-tools.response.utils.replaceInSpeechAndCard( responseData, replaceObj )`
+#### `ask-tools.response.utils.replaceInSpeechAndCard( responseData, replaceObj )`
 * Replaces all instances of replaceObj key with value of replaceObj key in responseData speech output, speech reprompt, card title and card reprompt.
 * _Example:_
   ```
-    alexa-tools.response.utils.replaceInSpeechAndCard(
+    ask-tools.response.utils.replaceInSpeechAndCard(
         {
             speech: {
                 output: "replace {foo}"
@@ -190,11 +188,11 @@ Creates display templates, sends tracking events (if configured), links accounts
     }
     ```
     
-#### `alexa-tools.response.utils.replaceInDisplay( responseData, replaceObj )`
+#### `ask-tools.response.utils.replaceInDisplay( responseData, replaceObj )`
 * Replaces all instances of replaceObj key with value of replaceObj key in responseData display primary, secondary and tertiary text.
 * _Example:_
   ```
-    alexa-tools.response.utils.replaceInDisplay(
+    ask-tools.response.utils.replaceInDisplay(
         {
             display: {
                 "template": "BodyTemplate2",
@@ -242,33 +240,59 @@ Creates display templates, sends tracking events (if configured), links accounts
     }
     ```
 
-#### `alexa-tools.response.utils.replaceInAll( responseData, replaceObj )`
+#### `ask-tools.response.utils.replaceInAll( responseData, replaceObj )`
 * Makes calls to `replaceInSpeechAndCard` and `replaceInDisplay`
     
 
 ## analytics
-* Add `ANALYTICS_PROVIDER` env var (default: VOICELAB)
+* Add `ANALYTICS_PROVIDER` env var (default: DASHBOT)
  ```
- alexa-tools.analytics.enums.analyticsProvider = {
-      DASHBOT: "dashbot",
-      VOICELAB: "voicelab"
+ ask-tools.analytics.enums.analyticsProvider = {
+      DASHBOT: "dashbot"
  }
  ```
 * Add `ANALYTICS_TOKEN` env var
 * `index.js`
-    * add `analytics = require( "alexa-tools" ).analytics`
-    * add `analytics.init( event );` after Alexa instantiation.
-* Use response handlers `::ask` and `::tell`
+    * add `analytics = require( "ask-tools" ).analytics`
+    * add `Alexa.SkillBuilders.custom().addRequestInterceptors( analytics.sendRequestTracking )`
 
 ## isp
 * Helper methods for In-Skill Purchasing
 * `index.js`
-    * add to skillBuilder `.withApiClient( new Alexa.DefaultApiClient() )`
+    * add  `Alexa.SkillBuilders.custom().withApiClient( new Alexa.DefaultApiClient() )`
 
 ## list-api
 * Helper methods for adding items to an Alexa list
 * `index.js`
-    * add to skillBuilder `.withApiClient( new Alexa.DefaultApiClient() )`
+    * add `Alexa.SkillBuilders.custom().withApiClient( new Alexa.DefaultApiClient() )`
+    
+## localization
+* Helper methods for internationalization
+* `index.js`
+    * add `const localization = require( "ask-toolkit" ).localization( strings );`
+    * add `Alexa.SkillBuilders.custom().addRequestInterceptors( localization.requestInterceptor )`
+* access strings in handlers through `handlerInput.attributesManager.getRequestAttributes().t( stringKey )`
 
+## persisitence
+* Helper methods for working with and storing to DynamoDB
+* Object automatically stored on every response. 
+* `index.js`
+    * add `persistence = require( "ask-toolkit" ).persistence`
+    * add `Alexa.SkillBuilders.custom().withPersistenceAdapter( persistence.dynamoAdapter( process.env.DYNAMODB_TABLE ) )`
+
+### persistence methods
+All methods are additive.  They do not overwrite other object properties.
+1) `async setPersistentAttributes( handlerInput, attributeObject )`
+2) `setRequestAttributes( handlerInput, attributeObject )`
+3) `setSessionAttributes( handlerInput, attributeObject )`
+4) `async updatePersistentAttribute( handlerInput, attributeKey, val )`
+5) `updateRequestAttribute( handlerInput, attributeKey, val )`
+6) `updateSessionAttribute( handlerInput, attributeKey, val )`
+
+## services
+* KMS - Promise helper to decrypt encrypted ENV vars
+    * `kmsService = require( "ask-toolkit" ).kmsService`
+    * `await kmsService.decrypt( { apiKey: process.env[ "API_KEY" ] } );`
+    
 ## utils
 * General helper methods.
