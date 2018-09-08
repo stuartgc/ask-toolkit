@@ -1,22 +1,12 @@
 {
-  "author": {
-    "name": "Hearst Emerging Tech"
-  },
+  "author": "Hearst Emerging Tech",
   "bugs": {
     "url": "https://github.com/Hearst-DD/ask-toolkit/issues"
   },
   "bundleDependencies": false,
   "contributors": [
-    {
-      "name": "Stuart Chandra",
-      "email": "dev@stuartgc.com",
-      "url": "https://github.com/stuartgc"
-    },
-    {
-      "name": "Tristan Himmelman",
-      "email": "tristanhimmelman@gmail.com",
-      "url": "https://github.com/tristanhimmelman"
-    }
+    "Stuart Chandra <dev@stuartgc.com> (https://github.com/stuartgc)",
+    "Tristan Himmelman <tristanhimmelman@gmail.com> (https://github.com/tristanhimmelman)"
   ],
   "dependencies": {
     "alexa-sdk": "1.0.25",
@@ -49,5 +39,9 @@
     "test": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=dashbot&&export ANALYTICS_TOKEN=analyticsToken&& mocha --recursive --reporter spec",
     "test-coverage": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=dashbot&&export ANALYTICS_TOKEN=analyticsToken&& nyc mocha --recursive --reporter spec && nyc report --reporter=html"
   },
-  "version": "3.2.2"
+  "version": "3.2.2",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }
