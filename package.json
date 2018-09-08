@@ -3,7 +3,7 @@
     "name": "Hearst Emerging Tech"
   },
   "bugs": {
-    "url": "https://github.com/Hearst-DD/alexa-toolkit/issues"
+    "url": "https://github.com/Hearst-DD/ask-toolkit/issues"
   },
   "bundleDependencies": false,
   "contributors": [
@@ -24,15 +24,15 @@
     "dashbot": "9.9.1",
     "request": "2.85.0"
   },
-  "deprecated": false,
-  "description": "Toolkit to be used with alexa-sdk to simplify Alexa development.",
+  "deprecated": true,
+  "description": "Toolkit to be used with alexa-sdk v1 to simplify Alexa development. **deprecated** This version of the alexa-toolkit is no longer supported. Please use the v2 release found here: https://github.com/Hearst-DD/ask-toolkit",
   "devDependencies": {
     "chai": "4.1.2",
     "mocha": "4.1.0",
     "nyc": "11.7.3",
     "sinon": "4.1.4"
   },
-  "homepage": "https://github.com/Hearst-DD/alexa-toolkit#readme",
+  "homepage": "https://github.com/Hearst-DD/ask-toolkit/tree/v3.2.2#readme",
   "keywords": [
     "Alexa",
     "skill",
@@ -43,7 +43,7 @@
   "name": "alexa-toolkit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Hearst-DD/alexa-toolkit.git"
+    "url": "git+https://github.com/Hearst-DD/ask-toolkit.git#v3.2.2"
   },
   "scripts": {
     "test": "export ENVIRONMENT=dev-test&&export S3_BUCKET=alexa-s3-bucket-dev&&export ANALYTICS_PROVIDER=dashbot&&export ANALYTICS_TOKEN=analyticsToken&& mocha --recursive --reporter spec",
