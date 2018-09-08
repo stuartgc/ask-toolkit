@@ -1,6 +1,11 @@
 # alexa-toolkit
 
-Helper methods to be used in conjunction with Amazon's `alexa-sdk`.
+## deprecated
+_This version of the alexa-toolkit is no longer supported. Please use the v2 release found here: https://github.com/Hearst-DD/ask-toolkit or `npm install ask-toolkit`_
+
+---
+
+Helper methods to be used in conjunction with Amazon's `alexa-sdk` v1.
 
 ## install
 `npm install --save alexa-toolkit`
