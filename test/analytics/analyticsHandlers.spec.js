@@ -2,7 +2,7 @@
 
 const analytics = require( "./../../lib/analytics/analyticsHandlers" ),
     analyticsUtils = require( "./../../lib/analytics/analyticsUtils" ),
-    c = require( "./../../lib/analytics/constants" ),
+    e = require( "./../../lib/enums" ),
     Dashbot = require( "dashbot" )( process.env.ANALYTICS_TOKEN ).alexa,
     dashbotEventService = require( "./../../lib/analytics/dashbotEventService" );
 
@@ -35,7 +35,7 @@ describe( "ANALYTICS HANDLERS", function() {
                         }
                     },
                     locale: "MOON",
-                    type: c.requestType.intentRequest
+                    type: e.requestType.intentRequest
                 }
             }
         } );
