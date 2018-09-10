@@ -17,7 +17,16 @@ Creates display templates, sends tracking events (if configured), links accounts
     * Replace `return handlerInput.responseBuilder.getResponse()` with `return responseBuilder.ask( handlerInput, responseObj );` 
  
  #### EXAMPLE:
- Replace `return handlerInput.responseBuilder.speak( output ).reprompt( reprompt ).withSimpleCard( cardTitle, card ).getResponse()`  with  `return responseBuilder.ask( handlerInput, { speech: { output: output, reprompt: reprompt }, card: { title: cardTitle, output: card } } )`
+ Replace 
+ ```
+ return handlerInput.responseBuilder.speak( output ).reprompt( reprompt ).withSimpleCard( cardTitle, card ).getResponse()
+ ``` 
+
+with  
+
+ ```
+ return responseBuilder.ask( handlerInput, { speech: { output: output, reprompt: reprompt }, card: { title: cardTitle, output: card } } )
+ ```
  
  #### METHODS:
  1) `responseBuilder.ask( handlerInput, askData, options )`
