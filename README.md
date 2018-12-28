@@ -32,7 +32,7 @@ with
  1) `responseBuilder.ask( handlerInput, askData, options )`
  2) `responseBuilder.tell( handlerInput, tellData, options )`
  3) `responseBuilder.askForPermissions( handlerInput, data, options, permissions )`
- 4) `responseBuilder.sendDirective( handlerInput, type, name, payload, token )`
+ 4) `responseBuilder.sendDirective( handlerInput, directiveObject )`
  5) `responseBuilder.sendLinkAccountCard( handlerInput, data, options )`
  
  #### PARAMS:
